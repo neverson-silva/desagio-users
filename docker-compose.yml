@@ -1,0 +1,20 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: nest_postgres
+    environment:
+      POSTGRES_USER: users_app
+      POSTGRES_PASSWORD: users_app
+      POSTGRES_DB: users_app
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7
+    container_name: nest_redis
+    ports:
+      - "6379:6379"
+volumes:
+  postgres_data:
